@@ -19,8 +19,8 @@ score: Vec<Score>,
 然后遍历Field，获取vec内部的type，动态生成整删改查功能
 ## Student
 实现了整增删查功能
-〉增删：基于id，
-〉查询：基于name，teacher和student表是人名，course表课程名，score表student name
+> 增删：基于id，
+> 查询：基于name，teacher和student表是人名，course表课程名，score表student name
 
 
 **Test**
