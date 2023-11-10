@@ -18,7 +18,7 @@ score: Vec<Score>,
 创建一个CURD macro，用syn转化成DeriveInput，并且构建一个struct保存需要的Field和struct名，
 然后遍历Field，获取vec内部的type，动态生成整删改查功能
 ## Student
-实现了整增删查功能
+实现了增删查功能
 > 增删：基于id，
 > 查询：基于name，teacher和student表是人名，course表课程名，score表student name
 
@@ -46,8 +46,92 @@ fn main() {
 
 ```
 
-## Teacher TODO
-## Course TODO
-## Score TODO
-## 之后应该是不会更新了
+## Teacher
+实现了增删查功能
+> 增删：基于id，
+> 查询：基于name，teacher和student表是人名，course表课程名，score表student name
 
+
+**Test**
+```rust
+use studentsystem::{Table,Score,Student,Teacher};
+
+fn main() {
+    let mut table = Table::default();
+
+    let t1 = Teacher::new(1,"马化腾", 9);
+    let t2 = Teacher::new(2,"马云", 2);
+    let t3 = Teacher::new(3,"马斯克", 9);
+
+    table.add_teachers(t1);
+    table.add_teachers(t2);
+    table.add_teachers(t3);
+
+    table.del_teachers(2);
+    let tt = table.select_teachers_by_name("马化腾").unwrap();
+    println!("{:?}", tt);
+    println!("{:?}", table);
+}
+
+```
+## Course 
+实现了增删查功能
+> 增删：基于id，
+> 查询：基于name，teacher和student表是人名，course表课程名，score表student name
+
+
+**Test**
+```rust
+use studentsystem::{Table,Score,Student,Teacher};
+
+fn main() {
+    let mut table = Table::default();
+    let course1 = Course::new(1,"Chinese");
+    let course2 = Course::new(2,"English");
+    let course3 = Course::new(3,"Rust");
+
+    table.add_courses(course1);
+    table.add_courses(course2);
+    table.add_courses(course3);
+
+    table.del_courses(2);
+    let language = table.select_courses_by_name("Rust").unwrap();
+    println!("{:?}", language);
+    println!("{:?}", table);
+}
+
+```
+## Score 
+实现了增删查功能
+> 增删：基于id，
+> 查询：基于name，teacher和student表是人名，course表课程名，score表student name
+
+
+**Test**
+```rust
+use studentsystem::{Table,Score,Student,Teacher};
+
+fn main() {
+    let sc1 = Score::new(1,"zack", 1,99);
+    let sc2 = Score::new(2,"jewell", 2,88);
+    let sc3 = Score::new(3,"lijiajia", 3,100);
+
+    table.add_scores(sc1);
+    table.add_scores(sc2);
+    table.add_scores(sc3);
+
+    table.del_scores(2);
+    let td = table.select_scores_by_name("lijiajia").unwrap();
+    println!("{:?}", td);
+    println!("{:?}", table)
+
+}
+
+```
+
+**execute result**
+![./code_execute_sult.png]
+
+## TODO， 但是之后应该不会做了
+1. update功能
+2. 联合查询，像查询数据库一样的功能
