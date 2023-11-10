@@ -130,7 +130,7 @@ fn main() {
 ```
 
 **execute result**
-![./code_execute_sult.png]
+<img src="./code_execute_sult.png" style="zoom:70%">
 
 ## TODO， 但是之后应该不会做了
 1. update功能
